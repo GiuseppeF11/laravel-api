@@ -14,6 +14,13 @@ use App\Http\Controllers\Admin\TechnologyController as AdminTechnologyController
 //Models
 use App\Models\Project;
 
+Route::get('/test-json', function () {
+    return response()->json([
+        'first_name' => 'Giuseppe',
+        'last_name' => 'Failla',
+    ]);
+});
+
 Route::get('/', [MainController::class, 'index'])->name('home');
 
 Route::prefix('projects')->name('projects.')->group(function () {
