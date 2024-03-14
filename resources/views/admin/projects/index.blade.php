@@ -16,6 +16,7 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Project Name</th>
+                        <th scope="col">Img</th>
                         <th scope="col">Tipo</th>
                         <th scope="col">Tech</th>
                         <th scope="col">link</th>
@@ -30,6 +31,11 @@
                         <tr>
                             <th scope="row">{{ $project->id }}</th>
                             <td>{{ $project->title }}</td>
+                            <td>
+                                @if ($project->full_cover_img)
+                                    <img src="{{ $project->full_cover_img }}" alt="{{ $project->title }}">
+                                @endif
+                            </td>
                             <td>
                                 @if ($project->type != null)
                                     <a href="{{ route('admin.types.show', ['type' => $project->type->id]) }}">
@@ -78,5 +84,7 @@
     @endsection
 
 <style lang="scss" scoped>
-
+img {
+    width: 100px
+}
 </style>

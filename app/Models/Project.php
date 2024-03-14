@@ -17,6 +17,17 @@ class Project extends Model
         'cover_img',
     ];
 
+    protected $appends = ['full_cover_img'];
+
+    public function getFullCoverImgAttribute() {
+        if ($this->cover_img) { //Se esiste cove_img 
+            return asset('storage/'.$this->cover_img);
+        } 
+        else {
+            return null;
+        }
+    }
+
     /* 
         Definisco la relazione 1 a *
     */

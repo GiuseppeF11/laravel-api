@@ -16,8 +16,8 @@
         </div>
 
         <div class="card">
-            @if ($project->cover_img != null)
-                <img src="{{ asset('storage/'.$project->cover_img) }}" alt="{{ $project->title }}"> {{-- Usiamo asset per percorso url completo --}}
+            @if ($project->full_cover_img)
+                <img src="{{ $project->full_cover_img }}" alt="{{ $project->title }}"> {{-- Usiamo asset per percorso url completo --}}
             @endif
 
             <div class="card-body">
