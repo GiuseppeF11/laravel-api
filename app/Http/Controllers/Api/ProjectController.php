@@ -18,11 +18,23 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function show(string $slug) {
-        $project = Project::where('slug', $slug)->firstOrFail(); /* Uso un filtraggio tramite slug che completerà quindi */ 
-        return response()->json([                                       /* la query per arrivare al singolo progetto */
-            'success' => true,
-            'results' => $project,
-        ]);
+    public function show(string $slug)
+    {
+        $project = Project::with('type', 'technologies')
+                    ->where('slug', $slug)
+                    ->first();
+
+        if ($project != null) {
+            return response()->json([
+                'success' => true,
+                'results' => $project,
+            ]);
+        }
+        else {
+            return response()->json([
+                'success' => false,
+                'results' => null,
+            ]);
+        }
     }
 }

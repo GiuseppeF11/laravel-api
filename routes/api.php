@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 //Controllers
+use App\Http\Controllers\Api\ContactController;
 use App\Http\Controllers\Api\ProjectController;
 use Database\Seeders\ProjectSeeder;
 
@@ -29,4 +30,6 @@ Route::name('api.')->group(function () { //Su tutte queste rotte (per evitare co
         'index',                                                 /*   dico di creare solo index e show */
         'show',
     ]);
+
+    Route::post('/contacts',[ContactController::class, 'store'])->name('contacts.store');
 });

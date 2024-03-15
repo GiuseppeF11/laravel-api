@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('APP_FRONTEND_URL')], //Solo questo dominio è abilitato (APP_FRONTEND_URL=http://localhost:5173)
+    'allowed_origins' => [env('APP_FRONTEND_URL','http://localhost:5174')], //Solo questo dominio è abilitato (APP_FRONTEND_URL=http://localhost:5174)
 
     'allowed_origins_patterns' => [],
 
